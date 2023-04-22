@@ -1,18 +1,28 @@
+import VideoList from "./components/VideoList";
+import { useRef } from "react";
 import { useState } from "react";
 import styled from "styled-components";
-import { YoutubeHeader, VideoList } from "./components";
-
+import YoutubeHeader from "./components/YoutubeHeader";
 const App = () => {
   const [searchText, setSearchText] = useState();
+  const searchTextRef = useRef(null);
+  const scrollTopRef = useRef(null);
 
-  const handleOnChange = (e) => {};
+  const handleOnChange = (e) => {
+    searchTextRef.current = e.target.value;
+  };
 
-  const handleSearchFormSubmit = (e) => {};
+  const handleSearchFormSubmit = (e) => {
+    e.preventDefault();
+    setSearchText(searchTextRef.current);
+  };
 
-  const scrollToTop = () => {};
+  const scrollToTop = () => {
+    scrollTopRef.current.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
-    <StAppWrapper>
+    <StAppWrapper ref={scrollTopRef}>
       <YoutubeHeader
         handleOnChange={handleOnChange}
         handleSearchFormSubmit={handleSearchFormSubmit}

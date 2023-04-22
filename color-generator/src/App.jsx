@@ -11,7 +11,9 @@ const App = () => {
     try {
       const resultColorList = new Values(serachColor.current).all(3);
       setColorList([...resultColorList]);
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
   const handleOnChange = (e) => {
     serachColor.current = e.target.value;
@@ -25,13 +27,13 @@ const App = () => {
         handleOnChange={handleOnChange}
       />
       <section>
-        {colorList.map(({ rgb, weight, hex }, idx) => (
+        {colorList.map((color, idx) => (
           <SingleColorItem
-            key={rgb}
-            rgb={rgb}
-            weight={weight}
+            key={color.rgb}
+            rgb={color.rgb}
+            weight={color.weight}
             idx={idx}
-            hexColor={hex}
+            hexColor={color.hex}
           />
         ))}
       </section>

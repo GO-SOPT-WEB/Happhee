@@ -1,5 +1,5 @@
 export const getSearchYoutubeData = async (searchText) => {
-  const key = process.env.REACT_APP_YOUTUBE_KEY;
+  const key = import.meta.env.VITE_YOUTUBE_KEY;
   const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchText}&maxResults=50&type=video&key=${key}`;
 
   const options = {
@@ -19,7 +19,7 @@ export const getSearchYoutubeData = async (searchText) => {
   }
 };
 export const getPopularYoutubeData = async () => {
-  const key = process.env.REACT_APP_YOUTUBE_KEY;
+  const key = import.meta.env.VITE_YOUTUBE_KEY;
   const url = `https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=50&regionCode=kr&key=${key}`;
 
   const options = {
