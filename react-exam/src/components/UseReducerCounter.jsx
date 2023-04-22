@@ -13,22 +13,22 @@ const reducerCount = (state, action) => {
   }
 };
 const UseReducerCounter = () => {
-  const [reducerWebMemberCount, dispatch] = useReducer(reducerCount, 0);
+  // const [reducerWebMemberCount, dispatch] = useReducer(reducerCount, 0);
   const [webMemberCount, setWebMemberCount] = useState(0);
 
   const goWebWorkShop = () => {
-    // setWebMemberCount((prev) => prev + 1);
-    dispatch({ type: "goWebWorkShop" });
+    setWebMemberCount((prev) => prev + 1);
+    // dispatch({ type: "goWebWorkShop" });
   };
   const backWebWorkShop = () => {
-    // setWebMemberCount((prev) => prev - 1);
-    dispatch({ type: "backWebWorkShop" });
+    setWebMemberCount((prev) => prev - 1);
+    // dispatch({ type: "backWebWorkShop" });
   };
 
   return (
     <StCountWrapper>
-      {/* <p>웹 워크샵 인원 : {webMemberCount}</p> */}
-      <p>웹 워크샵 인원 : {reducerWebMemberCount}</p>
+      <p>웹 워크샵 인원 : {webMemberCount}</p>
+      {/* <p>웹 워크샵 인원 : {reducerWebMemberCount}</p> */}
       <nav>
         <button onClick={goWebWorkShop} type="button">
           해삐🌼워크샵 가기!

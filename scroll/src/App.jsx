@@ -1,11 +1,9 @@
 import VideoList from "./components/VideoList";
-import { useRef } from "react";
 import { useState } from "react";
 import styled from "styled-components";
 import YoutubeHeader from "./components/YoutubeHeader";
 const App = () => {
   const [searchText, setSearchText] = useState();
-  const scrollTopRef = useRef(null);
 
   const handleOnChange = (e) => {
     console.log(e);
@@ -16,8 +14,8 @@ const App = () => {
     setSearchText(searchText);
   };
 
-  const scrollToTop = () => {
-    scrollTopRef.current.scrollIntoView({ behavior: "smooth" });
+  const scrollToTop = (e) => {
+    console.log(e);
   };
 
   return (
