@@ -5,16 +5,15 @@ import styled from "styled-components";
 import YoutubeHeader from "./components/YoutubeHeader";
 const App = () => {
   const [searchText, setSearchText] = useState();
-  const searchTextRef = useRef(null);
   const scrollTopRef = useRef(null);
 
   const handleOnChange = (e) => {
-    searchTextRef.current = e.target.value;
+    console.log(e);
   };
 
   const handleSearchFormSubmit = (e) => {
     e.preventDefault();
-    setSearchText(searchTextRef.current);
+    setSearchText(searchText);
   };
 
   const scrollToTop = () => {
@@ -22,7 +21,7 @@ const App = () => {
   };
 
   return (
-    <StAppWrapper ref={scrollTopRef}>
+    <StAppWrapper>
       <YoutubeHeader
         handleOnChange={handleOnChange}
         handleSearchFormSubmit={handleSearchFormSubmit}
