@@ -4,10 +4,10 @@ import styled from "styled-components";
 
 import ImgCard from "./ImgCard";
 const ImgCardList = () => {
-  const [imgCardList, setImgCardList] = useState();
+  const [imgCardList, setImgCardList] = useState([]);
 
   const getImgCardList = () => {
-    fetch(`${import.meta.env.VITE_BASE_URL}/web-gallery`)
+    fetch(`http://${import.meta.env.VITE_BASE_URL}/web-gallery`)
       .then((res) => res.json())
       .then((data) => {
         if (data.code === 200) setImgCardList(data.data);

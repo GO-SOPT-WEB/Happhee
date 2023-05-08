@@ -9,7 +9,7 @@ const DetailCardInfo = () => {
   const [selectCard, setSelectCard] = useState();
 
   const getDetailCardInfo = () => {
-    fetch(`${import.meta.env.VITE_BASE_URL}/web-gallery/${cardId}`)
+    fetch(`http://${import.meta.env.VITE_BASE_URL}/web-gallery/${cardId}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.code === 200) {
