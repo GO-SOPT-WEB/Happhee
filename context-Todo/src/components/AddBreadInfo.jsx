@@ -3,7 +3,7 @@ import styled from "styled-components";
 import useTodoBreadDispatch from "../lib/hooks/useTodoBreadDispatch";
 
 const AddBreadInfo = () => {
-  // const dispatch = useTodoBreadDispatch();
+  const dispatch = useTodoBreadDispatch();
   const inputRef = useRef(null);
 
   return (
@@ -11,7 +11,7 @@ const AddBreadInfo = () => {
       <input ref={inputRef} type="input" />
       <St.BreadAddBtn
         onClick={() => {
-          // dispatch({ type: "CREATE", todoBread: inputRef.current.value });
+          dispatch({ type: "BREAD_CREATE", payload: inputRef.current.value });
           inputRef.current.value = "";
         }}
       >

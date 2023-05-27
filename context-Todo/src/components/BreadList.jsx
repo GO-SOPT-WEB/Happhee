@@ -1,21 +1,23 @@
+import { useContext } from "react";
 import styled from "styled-components";
-import useTodoBreadState from "../lib/hooks/useTodoBreadState";
+import { TodoBreadContextInfo } from "../context/TodoBreadContext";
+// import useTodoBreadState from "../lib/hooks/useTodoBreadState";
 import BreadCard from "./BreadCard";
 
 const BreadList = () => {
-  // const state = useTodoBreadState();
-  // return (
-  //   <St.BreadListWrapper>
-  //     {state.map((data) => (
-  //       <BreadCard
-  //         content={data.content}
-  //         isDone={data.isDone}
-  //         key={data.id}
-  //         id={data.id}
-  //       />
-  //     ))}
-  //   </St.BreadListWrapper>
-  // );
+  const breadData = useContext(TodoBreadContextInfo);
+  return (
+    <St.BreadListWrapper>
+      {breadData.map((data) => (
+        <BreadCard
+          content={data.content}
+          isDone={data.isDone}
+          key={data.id}
+          id={data.id}
+        />
+      ))}
+    </St.BreadListWrapper>
+  );
 };
 
 export default BreadList;

@@ -3,10 +3,10 @@ import useTodoBreadDispatch from "../lib/hooks/useTodoBreadDispatch";
 
 const BreadCard = (props) => {
   const { content, isDone, id } = props;
-  // const dispatch = useTodoBreadDispatch();
+  const dispatch = useTodoBreadDispatch();
 
   const handleToggleDone = () => {
-    // dispatch({ type: "TOGGLE", id });
+    dispatch({ type: "BREAD_TOGGLE", id });
   };
 
   return (

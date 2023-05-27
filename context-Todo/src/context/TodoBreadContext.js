@@ -9,6 +9,26 @@ export const todoBreadInfo = [
   { id: 6, content: "식빵", isDone: false },
 ];
 
-// export const todoBreadReducer = (state, action) => {};
+export const todoBreadReducer = (state, action) => {
+  switch (action.type) {
+    case "BREAD_CREATE":
+      return state.concat({
+        id: state.length + 1,
+        content: action.payload,
+        isDone: false,
+      });
+    case "BREAD_TOGGLE":
+      return state.map((breadInfo) =>
+        breadInfo.id === action.id
+          ? {
+              ...breadInfo,
+              isDone: !breadInfo.isDone,
+            }
+          : breadInfo
+      );
+    default:
+      return state;
+  }
+};
 export const TodoBreadContextInfo = createContext(todoBreadInfo);
 export const TodoBreadDispatch = createContext();

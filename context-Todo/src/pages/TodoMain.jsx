@@ -1,13 +1,16 @@
 import styled from "styled-components";
 import { BreadList, Header, AddBreadInfo } from "../components";
+import TodoBreadProvider from "../Providers/TodoBreadProvider";
 
 const TodoMain = () => {
   return (
-    <St.TodoMainWrapper>
-      <Header />
-      <BreadList />
-      <AddBreadInfo />
-    </St.TodoMainWrapper>
+    <TodoBreadProvider>
+      <St.TodoMainWrapper>
+        <Header />
+        <BreadList />
+        <AddBreadInfo />
+      </St.TodoMainWrapper>
+    </TodoBreadProvider>
   );
 };
 
