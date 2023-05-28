@@ -6,5 +6,12 @@ export const happheeMessage = selector({
   get: ({ get }) => {
     return get(happheeInfo).messageList;
   },
-  set: ({ get, set }, newMessage) => {},
+  set: ({ get, set }, newMessage) => {
+    const newHappheeInfo = {
+      ...get(happheeInfo),
+      messageList: get(happheeInfo).messageList.concat(newMessage),
+    };
+
+    return set(happheeInfo, newHappheeInfo);
+  },
 });

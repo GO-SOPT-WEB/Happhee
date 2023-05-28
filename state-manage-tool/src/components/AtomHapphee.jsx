@@ -13,18 +13,25 @@ const AtomHapphee = () => {
   const [happheeMessageInfo, setHappheeMessage] =
     useRecoilState(happheeMessage);
 
+  // useRecoilState 를 사용하면 한줄에 되겠죠?!!
+  const happheeInfoState = useRecoilValue(happheeInfo);
+  const setHappheeInfo = useSetRecoilState(happheeInfo);
+
+  const { name, hobby, age } = happheeInfoState;
+
   const inputRef = useRef();
 
   return (
     <St.AtomHappheeWrapper>
       <St.InfoWrapper>
-        <p>이름 : {}</p>
-        <p>취미 : {}</p>
+        <p>이름 : {name}</p>
+        <p>취미 : {hobby}</p>
         <St.AgeWrapper>
-          <p>나이 : {}</p>
+          <p>나이 : {age}</p>
           <button
             type="button"
             onClick={() => {
+              setHappheeInfo({ ...happheeInfoState, age: age + 1 });
               console.log("나이증가");
             }}
           >
